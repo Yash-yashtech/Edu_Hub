@@ -1,0 +1,48 @@
+﻿/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar .nav-link {
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: #1b6ec2;
+}
+
+/* Footer Styles */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.btn-primary:hover {
+  background-color: #1861ac;
+}
+
+/* Box Shadow */
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

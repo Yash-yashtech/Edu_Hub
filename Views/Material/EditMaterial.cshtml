@@ -1,0 +1,121 @@
+@model Edu_Hub_Project.Models.Material
+
+@{
+    ViewData["Title"] = "Edit Material";
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center text-primary">Edit Material</h1>
+
+    <hr class="my-4" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="EditMaterial" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+                <div class="form-group">
+                    <label asp-for="MaterialId" class="control-label"></label>
+                    <input asp-for="MaterialId" class="form-control" readonly />
+                    <span asp-validation-for="MaterialId" class="text-danger"></span>
+                </div>
+
+                <!-- Uncomment if CourseId is needed -->
+                @* 
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label"></label>
+                    <input asp-for="CourseId" class="form-control" />
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div> 
+                *@
+
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter material title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="URL" class="control-label"></label>
+                    <input asp-for="URL" class="form-control" placeholder="Enter material URL" />
+                    <span asp-validation-for="URL" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="5" placeholder="Enter material description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UploadDate" class="control-label"></label>
+                    <input asp-for="UploadDate" class="form-control" type="date" />
+                    <span asp-validation-for="UploadDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ContentType" class="control-label"></label>
+                    <input asp-for="ContentType" class="form-control" placeholder="Enter content type (e.g., PDF, Video)" />
+                    <span asp-validation-for="ContentType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    .container {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+        padding: 20px; /* Optional: Add padding to the container */
+        border-radius: 10px; /* Optional: Rounded corners for the container */
+        background-color: #fff; /* Optional: Background color for the container */
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 5px; /* Rounded corners for inputs */
+        border: 1px solid #ced4da; /* Light border */
+        transition: border-color 0.3s ease; /* Smooth transition for focus */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for inputs */
+    }
+
+    .form-control:focus {
+        border-color: #80bdff; /* Bootstrap primary color on focus */
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25), 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary color */
+        border-color: #007bff;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease; /* Smooth transition for hover */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for buttons */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+        border-color: #004085; /* Darker border on hover */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    }
+
+    h1.display-4 {
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+</style>

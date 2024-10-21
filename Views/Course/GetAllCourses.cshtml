@@ -1,0 +1,93 @@
+@model IEnumerable<Edu_Hub_Project.Models.Course>
+
+@{
+    ViewData["Title"] = "All Course";
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<!-- Hero Section -->
+<section class="hero is-info is-bold" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+    <div class="hero-body">
+        <h1 class="title" style="font-family: Arial, sans-serif; color: #383636;">Course List</h1>
+        <p class="subtitle" style="font-family: Arial, sans-serif; color: #3a3939;">Explore our wide range of courses</p>
+    </div>
+</section>
+
+<!-- Course List Grid -->
+<div class="container mb-4">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="card-text"><strong>Start Date:</strong> @Html.DisplayFor(modelItem => item.CourseStartDate)</p>
+                        <p class="card-text"><strong>End Date:</strong> @Html.DisplayFor(modelItem => item.CourseEndDate)</p>
+                        <p class="card-text"><strong>Category:</strong> @Html.DisplayFor(modelItem => item.Category)</p>
+                        <p class="card-text"><strong>Level:</strong> @Html.DisplayFor(modelItem => item.Level)</p>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.CourseId" class="btn btn-info btn-sm">Edit</a>
+                            <a asp-controller="Course" asp-action="EducatorDetails" asp-route-id="@item.CourseId" class="btn btn-danger btn-sm">Details</a>
+                            <a asp-controller="Enquiry" asp-action="ShowEnquiry" asp-route-id="@item.CourseId" class="btn btn-success btn-sm">Enquiry</a>
+                            <a asp-controller="Material" asp-action="AddMaterial" asp-route-id="@item.CourseId" class="btn btn-warning btn-sm">Add Material</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- CSS Styles -->
+<style>
+    .hero {
+        background-image: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .custom-font {
+        font-family: 'Arial', sans-serif; /* Change to your desired font */
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #242323;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .btn-group .btn {
+        margin: 0.5rem;
+    }
+</style>

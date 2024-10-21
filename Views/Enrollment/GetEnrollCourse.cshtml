@@ -1,0 +1,54 @@
+@model IEnumerable<Edu_Hub_Project.Models.EnrollmentCourse>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<h1 class="text-center text-primary my-4">List Of Enrolled Courses</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" asp-controller="Enrollment" asp-action="Edit" asp-route-id="@item.EnrollmentId">Edit</a>
+                    @* <a class="btn btn-info btn-sm" asp-controller="Enrollment" asp-action="Details" asp-route-id="@item.EnrollmentId">Details</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Enrollment" asp-action="Delete" asp-route-id="@item.EnrollmentId">Delete</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@* <p class="text-center">
+    <a class="btn btn-secondary" asp-action="EducatorIndex" asp-controller="User">Back to Dashboard</a>
+</p> *@

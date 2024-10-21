@@ -1,0 +1,121 @@
+@model Edu_Hub_Project.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<!-- Custom CSS -->
+<style>
+    .course-details {
+        background-color: #f7f7f7;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-details h1 {
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 20px;
+        font-size: 2em; /* Increased font size */
+    }
+
+    .course-details dt {
+        font-weight: bold;
+        color: #555;
+        font-size: 1.2em; /* Increased font size */
+    }
+
+    .course-details dd {
+        margin-left: 20px;
+        color: #333;
+        font-size: 1.2em; /* Increased font size */
+        display: inline; /* Display inline */
+        margin-right: 20px; /* Space between items */
+    }
+
+    .btn-show-material {
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-show-material:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+    .text-center {
+        margin-top: 20px;
+    }
+</style>
+
+<!-- User Greeting -->
+@* <div class="text-center">
+    <h2>Welcome, @User.Identity.Name!</h2>
+</div> *@
+
+<!-- Course Details Section -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 course-details">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CourseStartDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CourseStartDate)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CourseEndDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CourseEndDate)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Level)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Level)
+                </dd>
+            </dl>
+
+          
+
+            @* <div class="text-center mt-3">
+                <a asp-controller="Material" asp-action="MyMaterial" asp-route-id="@Model.CourseId" class="btn-show-material">Show Material</a>
+            </div> *@
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+@model Edu_Hub_Project.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Create Enrollment";
+    Layout = "/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<div class="container pt-4">
+    <h1 class="text-center text-primary mb-4"><b>Enroll For Course</b></h1>
+    <h4 class="text-center text-muted mb-2">Enroll in a Course</h4>
+    <hr class="my-4" />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="AddEnrollment" class="bg-light p-4 rounded shadow-lg">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                @* <div class="form-group mb-3">
+                    <label asp-for="UserId" class="control-label font-weight-bold text-secondary"></label>
+                    <input asp-for="UserId" class="form-control" preadonly />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CourseId" class="control-label font-weight-bold text-secondary"></label>
+                    <input asp-for="CourseId" class="form-control" readonly/>
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div> *@
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="EnrollmentDate" class="control-label fw-bold"></label>
+                    <input asp-for="EnrollmentDate" class="form-control" type="date" />
+                    <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+                </div>
+                  @* <div class="form-group mb-3">
+                    <label asp-for="Status" class="control-label fw-bold"></label>
+                    <input asp-for="Status" class="form-control" readonly />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div> *@
+
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" value="Enroll" class="btn btn-success btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@* <div class="text-center mt-4">
+<a asp-controller="Course" asp-action="CourseList" class="btn btn-link text-secondary back-btn">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .back-btn {
+        background-color: #2f3640;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .back-btn:hover {
+        background-color: #4f5d73;
+    }
+
+    .bg-light {
+        background-color: #f7f7f7 !important;
+    }
+
+    .text-primary {
+        color: #3498db !important;
+    }
+
+    .text-muted {
+        color: #95a5a6 !important;
+    }
+
+    .text-danger {
+        color: #e74c3c !important;
+    }
+
+    .btn-success {
+        background-color: #2ecc71 !important;
+        border-color: #2ecc71 !important;
+    }
+
+    .btn-success:hover {
+        background-color: #34c759 !important;
+        border-color: #34c759 !important;
+    }
+
+    .shadow-lg {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>

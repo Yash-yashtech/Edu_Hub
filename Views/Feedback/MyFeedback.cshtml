@@ -1,0 +1,32 @@
+@model IEnumerable<Edu_Hub_Project.Models.Feedback>
+
+@{
+    Layout = "/Views/Shared/_LayoutStudent.cshtml";
+}
+<h2 class="text-center text-primary mb-4" style="font-weight: bold;">My Feedback</h2>
+
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">Feedback</th>
+                <th class="text-center">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feedback in Model)
+            {
+                <tr>
+                    <td class="text-left">@feedback.FeedbackText</td>
+                    <td class="text-center">@feedback.Date.ToString("MMMM dd, yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="AddFeedback" asp-controller="Feedback" class="btn btn-success">
+        Add New Feedback
+    </a>
+</div>

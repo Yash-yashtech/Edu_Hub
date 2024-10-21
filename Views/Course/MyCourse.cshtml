@@ -1,0 +1,59 @@
+@model IEnumerable<Edu_Hub_Project.Models.Course>
+
+@{
+    ViewData["Title"] = "Course Catalog";
+    
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="text-center" style="color: #0984d5;">Course Catalog</h1>
+            <div class="search-bar mb-3">
+                @* <div class="input-group">
+                    @Html.TextBox("searchQuery", "", new { @class = "form-control", @placeholder = "Search courses...", @style = "border: 1px solid #000;" })
+                    <span class="input-group-btn">
+                        @Html.ActionLink("Search", "Index", new { searchQuery = "" }, new { @class = "btn btn-outline-dark" })
+                    </span>
+                </div> *@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-deck">
+                @foreach (var item in Model)
+                {
+                    <div class="card border-dark mb-4 shadow-sm" style="border: 1px solid #000;">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">@Html.DisplayFor(modelItem => item.Title)</h5>
+                            <p class="card-text" style="color: #333;">@Html.DisplayFor(modelItem => item.Description)</p>
+                            <p class="card-text" style="color: #666;">
+                                <small>
+                                    @Html.DisplayFor(modelItem => item.CourseStartDate) - @Html.DisplayFor(modelItem => item.CourseEndDate)
+                                </small>
+                            </p>
+                            <p class="card-text" style="color: #666;">
+                                <small>
+                                    Category: @Html.DisplayFor(modelItem => item.Category)
+                                </small>
+                            </p>
+                            <p class="card-text" style="color: #666;">
+                                <small>
+                                    Level: @Html.DisplayFor(modelItem => item.Level)
+                                </small>
+                            </p>
+                            <div class="btn-group">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-sm btn-dark mr-2" })
+                                @Html.ActionLink("Details", "EducatorDetails", new { id = item.CourseId }, new { @class = "btn btn-sm btn-secondary mr-2" })
+                                @Html.ActionLink("Add Material", "AddMaterial", "Material", new { id = item.CourseId }, new { @class = "btn btn-sm btn-success" })
+                                @Html.ActionLink("Show Feedback", "FeedbackList", "Feedback", new { id = item.CourseId }, new { @class = "btn btn-sm btn-success" })
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

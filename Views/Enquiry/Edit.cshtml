@@ -1,0 +1,103 @@
+@model Edu_Hub_Project.Models.Enquiry
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<div class="text-center mt-4">
+    <h1 class="text-primary">Edit Enquiry</h1>
+</div>
+
+<div class="text-center mb-4">
+    <h4 class="text-secondary">Enquiry Details</h4>
+    <hr class="my-4" />
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Edit" class="bg-light p-4 rounded shadow">
+                <div class="form-group">
+                    <label asp-for="Subject" class="control-label"></label>
+                    <input asp-for="Subject" class="form-control" placeholder="Enter subject" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="control-label"></label>
+                    <textarea asp-for="Message" class="form-control" rows="4"
+                        placeholder="Enter your message"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EnquiryDate" class="control-label"></label>
+                    <input asp-for="EnquiryDate" class="form-control" type="date" />
+                    <span asp-validation-for="EnquiryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <select asp-for="Status" class="form-control">
+                        <option value="">Select Status</option>
+                        <option value="Open">Open</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Response" class="control-label"></label>
+                    <input asp-for="Response" class="form-control" placeholder="Enter response" />
+                    <span asp-validation-for="Response" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center" style="margin-top: 20px;">
+                    <input type="submit" value="Save" class="btn btn-success btn-lg" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-controller="Course" asp-action="CourseList" class="btn btn-outline-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    body {
+        background-color: #e9ecef;
+    }
+
+    h1 {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    h4 {
+        color: #6c757d;
+    }
+
+    .form-control {
+        border-radius: 0.5rem;
+        border: 1px solid #ced4da;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+</style>

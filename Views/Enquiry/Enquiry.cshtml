@@ -1,0 +1,76 @@
+@model IEnumerable<Edu_Hub_Project.Models.Enquiry>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "/Views/Shared/_LayoutEducator.cshtml";
+}
+
+<h1 class="text-center text-primary my-4">Enquiries</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnquiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Response)
+            </th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnquiryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Response)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }, new { @class = "btn btn-warning btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .table {
+        margin: 0 auto;
+        width: 90%;
+    }
+    .thead-dark th {
+        background-color: #343a40;
+        color: white;
+    }
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+</style>

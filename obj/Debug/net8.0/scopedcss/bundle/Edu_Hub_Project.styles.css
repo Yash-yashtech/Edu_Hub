@@ -1,0 +1,49 @@
+/* _content/Edu_Hub_Project/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* General Styles */
+body[b-9csxdahup2] {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container[b-9csxdahup2] {
+  margin-top: 20px;
+}
+
+/* Navbar Styles */
+.navbar[b-9csxdahup2] {
+  background-color: #ffffff;
+}
+
+.navbar .nav-link[b-9csxdahup2] {
+  transition: color 0.3s;
+}
+
+.navbar .nav-link:hover[b-9csxdahup2] {
+  color: #1b6ec2;
+}
+
+/* Footer Styles */
+.footer[b-9csxdahup2] {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.btn-primary[b-9csxdahup2] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.btn-primary:hover[b-9csxdahup2] {
+  background-color: #1861ac;
+}
+
+/* Box Shadow */
+.box-shadow[b-9csxdahup2] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
